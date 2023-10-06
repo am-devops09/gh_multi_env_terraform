@@ -1,20 +1,21 @@
-terraform {
-	required_providers {
-		aws = {
-			source = "hashicorp/aws"
-		}
-	}
+# terraform {
+#   required_version = ">= 1.1.0"
 
-	backend "remote" {
-		hostname = "app.terraform.io"
-		organization = "cicd-eks-gha"
-
-		workspaces {
-			name = "multi_env_ghactions"
-		}
-	}
-}
+#   cloud {
+#    organization = "my-org"
+#     workspaces {
+#      tags = ["app:mine"]
+#     }
+#   }
+# }
 
 provider "aws" {
 	region = "us-east-1"
+}
+terraform {
+  backend "s3" {
+    bucket = "terraform-workspaces-mvone"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
 }
