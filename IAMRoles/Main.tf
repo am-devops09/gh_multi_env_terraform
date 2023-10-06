@@ -10,7 +10,8 @@ terraform {
 		organization = "cicd-eks-gha"
 
 		workspaces {
-			name = "multi_env_ghactions"
+			# name = "multi_env_ghactions" ## i have to mad it tfvars which depends in git branch or env 
+			name = var.workspace
 		}
 	}
 }
