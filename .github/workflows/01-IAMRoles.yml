@@ -12,29 +12,29 @@ on:
       - prod
 
 jobs:
-  # Plan_Dev:
-  #   if: github.ref == 'refs/heads/dev'
-  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@dev
-  #   with:
-  #     path: IAMRoles
-  #     tf_vars_file: dev.tfvars
-  #     gh_environment: dev
-  #   secrets:
-  #   #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  Plan_Dev:
+    if: github.ref == 'refs/heads/dev'
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@dev
+    with:
+      path: IAMRoles
+      tf_vars_file: dev.tfvars
+      gh_environment: dev
+    secrets:
+    #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
-  # Deploy_Dev:
-  #   needs: Plan_Dev
-  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@dev
-  #   with:
-  #     path: IAMRoles
-  #     tf_vars_file: dev.tfvars
-  #     gh_environment: dev
-  #   secrets:
-  #   #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
-  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  Deploy_Dev:
+    needs: Plan_Dev
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@dev
+    with:
+      path: IAMRoles
+      tf_vars_file: dev.tfvars
+      gh_environment: dev
+    secrets:
+    #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   # Deploy_stg:
 
