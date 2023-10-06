@@ -14,7 +14,7 @@ on:
 jobs:
   Plan_Dev:
     if: github.ref == 'refs/heads/dev'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_plan.yml@dev
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@dev
     with:
       path: IAMRoles
       tf_vars_file: dev.tfvars
@@ -24,7 +24,7 @@ jobs:
 
   Deploy_Dev:
     needs: Plan_Dev
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@dev
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@dev
     with:
       path: IAMRoles
       tf_vars_file: dev.tfvars
@@ -34,7 +34,7 @@ jobs:
 
   Plan_stg:
     if: github.ref == 'refs/heads/stg'
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_plan.yml@stg
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@stg
     with:
       path: IAMRoles
       tf_vars_file: stg.tfvars
@@ -44,7 +44,7 @@ jobs:
 
   Deploy_stg:
     needs: Plan_stg
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@stg
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@stg
     with:
       path: IAMRoles
       tf_vars_file: stg.tfvars
@@ -54,7 +54,7 @@ jobs:
 
   Deploy_prod:
     needs: Plan_prod
-    uses: RekhuGopal/gitreusableflows/.github/workflows/aws_tf_appy.yml@prod
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@prod
     with:
       path: IAMRoles
       tf_vars_file: prod.tfvars
