@@ -9,11 +9,10 @@ terraform {
 		hostname = "app.terraform.io"
 		organization = "cicd-eks-gha"
 
-		TF_WORKSPACE{
-			name = var.workspace
+		TF_WORKSPACE = var.workspace
 		}
 	}
-}
+
 
 provider "aws" {
 	region = "us-east-1"
