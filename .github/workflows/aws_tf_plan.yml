@@ -21,10 +21,17 @@ on:
         description: 'Specifies the Terraform TFVARS file.'
         required: true
         type: string
-    # secrets:
-    #   cli_config_credentials_token:
-    #     description: 'cli config credentials token'
-    #     required: true
+    secrets:
+      # cli_config_credentials_token:
+      #   description: 'cli config credentials token'
+      #   required: true
+      AWS_ACCESS_KEY_ID:
+        description: 'aws acces key id'
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        description: 'aws secret access key'
+        required: true
+         
 
 jobs:
   build-plan:
