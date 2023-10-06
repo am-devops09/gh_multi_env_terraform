@@ -42,15 +42,15 @@ jobs:
     secrets:
       cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
-  # Deploy_stg:
-  #   needs: Plan_stg
-  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@stg
-  #   with:
-  #     path: IAMRoles
-  #     tf_vars_file: stg.tfvars
-  #     gh_environment: stg
-  #   secrets:
-  #     cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+  Deploy_stg:
+    needs: Plan_stg
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@stg
+    with:
+      path: IAMRoles
+      tf_vars_file: stg.tfvars
+      gh_environment: stg
+    secrets:
+      cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
 
   # Deploy_prod:
   #   needs: Plan_prod
