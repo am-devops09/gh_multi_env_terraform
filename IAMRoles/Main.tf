@@ -1,19 +1,21 @@
+# terraform {
+#   required_version = ">= 1.1.0"
+
+#   cloud {
+#    organization = "my-org"
+#     workspaces {
+#      tags = ["app:mine"]
+#     }
+#   }
+# }
+
+# provider "aws" {
+# 	region = "us-east-1"
+# }
 terraform {
-	required_providers {
-		aws = {
-			source = "hashicorp/aws"
-		}
-	}
-
-	backend "remote" {
-		hostname = "app.terraform.io"
-		organization = "cicd-eks-gha"
-
-		TF_WORKSPACE = var.workspace
-		}
-	}
-
-
-provider "aws" {
-	region = "us-east-1"
+  backend "s3" {
+    bucket = "terraform-workspaces-mvone"
+    key    = "terraform.tfstate"
+    region = "us-east-1"
+  }
 }
