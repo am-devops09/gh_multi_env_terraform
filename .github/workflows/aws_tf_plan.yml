@@ -22,9 +22,6 @@ on:
         required: true
         type: string
     secrets:
-      # cli_config_credentials_token:
-      #   description: 'cli config credentials token'
-      #   required: true
       AWS_ACCESS_KEY_ID:
         description: 'aws acces key id'
         required: true
@@ -36,9 +33,9 @@ on:
 jobs:
   build-plan:
     runs-on: ubuntu-latest
-    env:
-      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+    # env:
+    #   AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+    #   AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
     environment: ${{ inputs.gh_environment }}
     defaults:
       run:
@@ -57,8 +54,7 @@ jobs:
         uses: hashicorp/setup-terraform@v2.0.2
         with:
           terraform_version: ${{ inputs.tf_version }}
-          # cli_config_credentials_token: ${{ secrets.cli_config_credentials_token }}
-
+          
       - name: Terraform Init
         id: init
         run: terraform init
