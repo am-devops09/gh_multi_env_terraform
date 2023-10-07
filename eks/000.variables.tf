@@ -10,8 +10,8 @@ variable "instance_types_spot" {
 
 variable "desired_size" {
   type = number
-  default = "value"
-}
+  description = "desired size" 
+  }
 
 variable "min_size" {
   type = number
