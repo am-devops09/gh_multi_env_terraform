@@ -1,8 +1,8 @@
 Environment = "stg"
 
-instance_types_general = "t3.xlarge"
+instance_types_general = ["t3.xlarge"]
 
-instance_types_spot= "t2.medium"
+instance_types_spot= ["t2.medium"]
 
 desired_size= "2"
 
