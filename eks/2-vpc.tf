@@ -2,7 +2,7 @@ module "vpc" {
   source  = "terraform-aws-modules/vpc/aws"
   version = "5.1.2 "
 
-  name = "main-${Environment}"
+  name = "main-${var.Environment}"
   cidr = "10.0.0.0/16"
 
   azs             = ["us-east-1a", "us-east-1b"]
@@ -24,6 +24,6 @@ module "vpc" {
   enable_dns_support   = true
 
   tags = {
-    Environment = "${Environment}"
+    Environment = var.Environment
   }
 }
