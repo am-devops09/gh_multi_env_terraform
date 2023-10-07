@@ -78,7 +78,7 @@
 #      project: default
 #      source:
 #        repoURL: https://github.com/am-devops09/argocd.git
-#        targetRevision: HEAD
+#        targetRevision: HEAD  ## choice of branche // can i do ${var.Environment}
 #        path: k8s
 #        directory:
 #          recurse: true

@@ -11,11 +11,11 @@
 #         annotations:
 #           cert-manager.io/cluster-issuer: letsencrypt-production  
 #         hosts:
-#           - grafana.am-devops.com
+#           - grafana.am-devops.com ## here we ve multiple Env how we gonna do that
 #         tls:
 #           - secretName: grafana-tls
 #             hosts:
-#               - grafana.am-devops.com
+#               - grafana.am-devops.com  
 
 #     alertmanager:
 #       enabled: true
