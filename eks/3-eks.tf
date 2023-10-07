@@ -2,7 +2,7 @@ module "eks" {
   source  = "terraform-aws-modules/eks/aws"
   version = "18.29.0"
 
-  cluster_name    = "my-eks-${Environment}"
+  cluster_name    = "my-eks-${var.Environment}"
   cluster_version = "1.23"
 
   cluster_endpoint_private_access = true
