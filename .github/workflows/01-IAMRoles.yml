@@ -2,12 +2,12 @@ name: "01_IAMRoles"
 on:
   push:
     branches:
-      - /*
+      - '**'
       # - stg
       # - prod
   pull_request:
     branches:
-      - /*
+      - '**'
       # - stg
       # - prod
 
