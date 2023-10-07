@@ -62,7 +62,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   Plan_prod:
-    if: github.ref == 'refs/heads/stg'
+    if: github.ref == 'refs/heads/prod'
     uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@prod
     with:
       path: IAMRoles
