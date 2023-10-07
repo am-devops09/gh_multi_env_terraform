@@ -2,7 +2,7 @@
 #   source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
 #   version = "5.3.1"
 
-#   role_name                        = "cluster-autoscaler"
+#   role_name                        = "cluster-autoscaler-${var.Environment}"
 #   attach_cluster_autoscaler_policy = true
 #   cluster_autoscaler_cluster_ids   = [module.eks.cluster_id]
 

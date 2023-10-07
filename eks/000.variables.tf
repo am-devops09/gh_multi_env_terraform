@@ -1,25 +1,25 @@
 variable "instance_types_general" {
-  type = string
+  type = list(string)
   description = "value"
 }
 
 variable "instance_types_spot" {
-  type = string
+  type = list(string)
   description = "value"
 }
 
 variable "desired_size" {
-  type = string
-  default = "value"
-}
+  type = number
+  description = "desired size" 
+  }
 
 variable "min_size" {
-  type = string
+  type = number
   description = "value"
 }
 
 variable "max_size" {
-  type = string
+  type = number
   description = "value"
 }
 
@@ -29,7 +29,7 @@ variable "Environment" {
 }
 
 variable "disk_size" {
-  type = string
+  type = number
   description = "value"
 }
 

@@ -1,6 +1,6 @@
 
 # locals {
-#   domain = "am-devops.com"
+#   domain = "am-devops.com" ## or "${var.Environment.am-devops.com}"
  
 # }
 # # External DNS IRSA
@@ -8,7 +8,7 @@
 #   source  = "terraform-aws-modules/iam/aws//modules/iam-role-for-service-accounts-eks"
 #   version = "5.2.0" # Latest as of July 2022
 
-#   role_name                     = "external-dns"
+#   role_name                     = "external-dns-${var.Environment}"
 #   attach_external_dns_policy    = true
 #   external_dns_hosted_zone_arns = ["arn:aws:route53:::hostedzone/Z06330162N1SM3PIHP6K9"] # am-devops HostedZone
 
@@ -19,7 +19,7 @@
 #     }
 #   }
 
-# #   tags = "staging"
+# #   tags = var.Environment
 # }
 
 # # External DNS
@@ -59,14 +59,4 @@
 
   
 #   }
-
-# # NGINX Ingress Controller
-# # resource "helm_release" "nginx" {
-# #   name       = "nginx-ingress"
-# #   repository = "https://helm.nginx.com/stable"
-# #   chart      = "nginx-ingress"
-
-# #   create_namespace = true
-# #   namespace        = "nginx-ingress"
-# # }
 

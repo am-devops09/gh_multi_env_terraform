@@ -1,12 +1,13 @@
 Environment = "dev"
-instance_types_general = "t2.medium"
 
-instance_types_spot = "t2.micro"
+instance_types_general = ["t2.medium"]
 
-desired_size= "1"
+instance_types_spot = ["t2.micro"]
 
-min_size = "1"
+desired_size= 2
 
-max_size = "2"
+min_size = 2
 
-disk_size = "30"
+max_size = 2
+
+disk_size = 30
