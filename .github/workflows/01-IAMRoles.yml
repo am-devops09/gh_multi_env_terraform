@@ -73,7 +73,7 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
 
   Deploy_prod:
-    needs: Plan_stg
+    needs: Plan_prod
     uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_appy.yml@prod
     with:
       path: IAMRoles
