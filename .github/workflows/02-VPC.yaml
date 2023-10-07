@@ -1,0 +1,86 @@
+name: "02_VPC" 
+on:
+  push:
+    branches:
+      - '**'
+      # - stg
+      # - prod
+  pull_request:
+    branches:
+      - '**'
+      # - stg
+      # - prod
+
+jobs:
+  Plan_Dev:
+    if: github.ref == 'refs/heads/dev'
+    uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@dev
+    with:
+      path: eks
+      tf_vars_file: dev.tfvars
+      gh_environment: dev
+    secrets:
+    #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  # Deploy_Dev:
+  #   needs: Plan_Dev
+  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_apply.yml@dev
+  #   with:
+  #     path: eks
+  #     tf_vars_file: dev.tfvars
+  #     gh_environment: dev
+  #   secrets:
+  #   #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  # # Deploy_stg:
+
+  # Plan_stg:
+  #   if: github.ref == 'refs/heads/stg'
+  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@stg
+  #   with:
+  #     path: eks
+  #     tf_vars_file: stg.tfvars
+  #     gh_environment: stg
+  #   secrets:
+  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  # Deploy_stg:
+  #   needs: Plan_stg
+  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_apply.yml@stg
+  #   with:
+  #     path: eks
+  #     tf_vars_file: stg.tfvars
+  #     gh_environment: stg
+  #   # secrets:
+  #   secrets:
+  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  
+  # Plan_prod:
+  #   if: github.ref == 'refs/heads/prod'
+  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_plan.yml@prod
+  #   with:
+  #     path: eks
+  #     tf_vars_file: prod.tfvars
+  #     gh_environment: prod
+  #   secrets:
+  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+  # Deploy_prod:
+  #   needs: Plan_prod
+  #   uses: am-devops09/gh_multi_env_terraform/.github/workflows/aws_tf_apply.yml@prod
+  #   with:
+  #     path: eks
+  #     tf_vars_file: prod.tfvars
+  #     gh_environment: prod
+  #   # secrets:
+  #   #   cli_config_credentials_token: ${{ secrets.TF_API_TOKEN }}
+  #   secrets:
+  #     AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #     AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
