@@ -14,7 +14,7 @@ terraform {
     }
   }
   backend "s3" {
-    bucket = "terraform-workspaces-mvone"
+    bucket = "terraform-workspaces-backup"
     key    = "terraform.tfstate"
     region = "us-east-1"
   }

@@ -50,6 +50,22 @@
 #     value = "15"
 #   }
 
+    # set {
+    #     name = "ingress.enabled" ## what i nedd is argicd ingress+metrics
+    #     value = true
+    # }
+    #  set {
+    #     name = "ingress.ClassName"
+    #     value = "nginx"
+    # }
+
+    #  set {
+    #     name = "ingress.enabled"
+    #     value = true
+    # }
+
+
+
 # #  depends_on = [helm_release.nginx_ingress, kubernetes_secret.argocd_password]
 #   depends_on = [kubernetes_secret.argocd_password]
 

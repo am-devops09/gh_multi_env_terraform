@@ -1,0 +1,52 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: go-app
+  namespace: go-survey
+  labels:
+    app: go-app
+spec:
+  selector:
+    app: go-app
+  type: ClusterIP
+  ports:
+    - name: go-app
+      port: 8080
+      targetPort: 8080
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: mongo-app-service
+  namespace: go-survey
+  labels:
+    app: mongo-app
+spec:
+  selector:
+    app: go-app
+  ports:
+    - name: mongo-app
+      port: 27017
+      targetPort: 27017
+  type: ClusterIP
+
+---
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: go-app-ingress
+  namespace: go-survey
+  annotations:
+    kubernetes.io/ingress.class: "nginx"
+spec:
+  rules:
+    - host: goapp.am-devops.com
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: go-app
+                port:
+                  number: 8080

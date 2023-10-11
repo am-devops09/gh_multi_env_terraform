@@ -32,7 +32,7 @@ kubectl edit -n kube-system configmap/aws-auth
 
 # change the user
 
-aws eks --region us-east-1 update-kubeconfig --name my-eks
+    aws eks --region us-east-1 update-kubeconfig --name my-eks-dev
 # show config
 kubectl config view --minify 
 
